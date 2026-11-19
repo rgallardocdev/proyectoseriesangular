@@ -1,0 +1,54 @@
+<div class="container py-4">
+
+    <!-- Cabecera de la sección -->
+    <div class="mb-4">
+        <h2 class="fw-bold">{{arraySaludo[0]}}</h2>
+        <p class="text-muted">{{arraySaludo[1]}}</p>
+    </div>    
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @for(serie of arraySeries; track serie){
+      <div class="col">
+        <div class="card h-100 shadow-sm border-0 rounded-3">
+          
+        <!-- Encabezado con ID y estado/capacidad -->
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-3">
+            <span class="badge bg-light text-primary fw-bold">
+              ID: #{{ serie.idSerie }}
+            </span>
+        </div>
+          
+          <!-- Cuerpo de la tarjeta -->
+          <div class="card-body">
+            <h5 class="card-title" >{{ serie.nombre }}</h5>            
+            <ul class="list-unstyled text-secondary mb-0">
+              <li class="mb-2 d-flex align-items-start">
+                <i class="bi bi-geo-alt-fill text-danger me-2 mt-1"></i>
+                <span>{{ serie.anyo }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pie de tarjeta con el número de camas y acciones -->
+          <div class="card-footer bg-body-tertiary border-top-0 d-flex justify-content-between align-items-center py-3">
+            <div>
+                <img onerror="this.onerror=null; this.src='imagenes/imagen-por-defecto.avif';" [src]="serie.imagen" class="card-img-top object-fit-cover" [alt]="serie.nombre" style="height: 250px;">
+            </div>
+          </div>
+            <div class="mt-auto">
+            <a [routerLink]="['/personaje/', serie.idSerie]" class="btn btn-primary w-100">
+                Ver Personajes de la serie
+            </a>
+            </div>
+        </div>
+      </div>
+    } @empty {
+      <div class="col-12">
+        <div class="alert alert-info text-center" role="alert">
+          No hay series registradas en este momento.
+        </div>
+      </div>
+    }
+
+  </div>
+</div>

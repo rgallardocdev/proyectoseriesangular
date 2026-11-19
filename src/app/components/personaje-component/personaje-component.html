@@ -1,0 +1,25 @@
+<p>personaje-component works!</p>
+<p>{{mensajeParametro}}</p>
+
+@for(personaje of arrayPersonajes; track personaje){
+    <div class="card shadow-sm h-100" style="width: 18rem;">
+        <!-- Imagen de la serie -->
+        <img onerror="this.onerror=null; this.src='imagenes/imagen-por-defecto.avif';" [src]="personaje.imagen" class="card-img-top object-fit-cover" [alt]="personaje.nombre" style="height: 250px;">
+        
+        <div class="card-body d-flex flex-column">
+            <!-- Título y Año -->
+            <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">{{ personaje.nombre }}</h5>
+                <!-- <span class="badge text-bg-secondary">{{ _miSerie.anyo }}</span> -->
+            </div>
+
+            <!-- ID de referencia (opcional) -->
+            <p class="card-text text-body-secondary small mb-3">
+            ID: #{{ personaje.idPersonaje }}
+            </p> 
+        </div>
+    </div>    
+    <br>
+}
+
+
