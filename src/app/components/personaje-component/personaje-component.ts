@@ -29,7 +29,7 @@ export class PersonajeComponent implements OnInit {
         let _id = params['idSerie'];
         this._idSerie = _id;
         this.mensajeParametro = "ID Serie recibido: " + _id;
-        this.arrayPersonajes = await this._service.getPersonajesAsync(_id);
+        this.arrayPersonajes = await this._service.getPersonajesSerieAsync(_id);
         console.log(this.arrayPersonajes);
         this._cdr.detectChanges();
       })      

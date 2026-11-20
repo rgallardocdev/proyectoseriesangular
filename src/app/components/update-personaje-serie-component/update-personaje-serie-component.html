@@ -1,0 +1,23 @@
+<p>update-personaje-serie-component works!</p>
+
+<form #form="ngForm">
+    <p>seleccione un personaje</p>
+    <select name="selectidpersonaje" #selectidpersonaje class="form-select border-4 shadow-sm rounded-3" style="width: 300px;">
+        <option value="0" selected disabled>seleccione una opcion...</option>
+        @for(personaje of arrayPersonajes; track personaje){
+            <option value="{{personaje.idPersonaje}}" >{{personaje.nombre}}</option>
+        }
+    </select>
+    <br><br>
+    <p>Nueva serie</p>
+    <select name="selectidserie" #selectidserie class="form-select border-4 shadow-sm rounded-3" style="width: 300px;">
+        <option value="0" selected disabled>seleccione una opcion...</option>
+        @for(serie of arraySeries; track serie){
+            <option value="{{serie.idSerie}}" >{{serie.nombre}}</option>
+        }
+    </select>
+    <br><br>
+    <button (click)="modificarPersonaje()">Cambiar personaje</button>
+    <br><br>
+    <p>{{mensajeProceso}}</p>
+</form>
