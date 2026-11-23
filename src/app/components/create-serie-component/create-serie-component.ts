@@ -28,10 +28,6 @@ export class CreateSerieComponent {
     let _nombre = this._cajanombre.nativeElement.value;
     let _imagen = "imagenes/" + this.nombreArchivo; //this._cajaimagen.nativeElement.value;
     let _anyo = parseInt(this._cajaanyo.nativeElement.value);
-    console.log(_idserie);
-    console.log(_nombre);
-    console.log(_imagen);
-    console.log(_anyo);
 
     let _serie = new miSerie(_idserie, _nombre, _imagen, _anyo);
     let response = await this._service.postCrearSerieAsync(_serie);
